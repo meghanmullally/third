@@ -35,7 +35,7 @@ h5 {
 // header
 
 header {
-  position: fixed;
+  position: absolute;
   top: 0;
   width: 100%;
   z-index: 10;
@@ -71,10 +71,20 @@ li a:hover:not(.active) {
   background-color: rgb(58, 136, 172);
 }
 
+//search transition 
+
+input[type=text] {
+  width: 100px;
+  -webkit-transition: width .35s ease-in-out;
+  transition: width .35s ease-in-out;
+}
+input[type=text]:focus {
+  width: 250px;
+}
 
 // section 
 
-section, article {
+section {
 margin: 10px;
 padding: 10px; 
 }
@@ -82,41 +92,76 @@ padding: 10px;
 
 // article 
 
-#one{
-  height: 400px;
-   width: 400px;
-    background-color: blue;
+article {
+  padding: 20px;
+  margin: 20px;
+  bottom: 0;
+}
 
+// image transform & translate
 
-   #two{
-     height: 200px;
-     width: 200px;
-     background-color: red;
-   }
- }
+.container {
+  position: relative;
+  width: 50%;
+  padding: 20px;
+  margin: 20px;
+}
 
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+  padding: 20px;
+  margin: 20px;
+}
 
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: rgb(26, 28, 29);
+}
 
+.container:hover .overlay {
+  opacity: 1;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+ transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
 
 // footer 
 
 
-footer {
-  position: fixed;
-  background-color: rgb(37, 37, 37);
+ footer {
+   position: absolute;
+   background-color: rgb(37, 37, 37);
   padding: 20px;
-  width: 100%;
-  bottom: 0;
-  text-align: center;
-  color: white;
+   width: 100%;
+   bottom: 0;
+   text-align: center;
+   color: white;
 }
 
-footer p {
-  font-size: 10px;
-  text-indent: 50px;
-  text-align: center;
-  /* line-height: 1.6; */
- padding: 2px 2px; 
- font-family: sans-serif;
-}
+ footer p {
+   font-size: 10px;
+   text-indent: 50px;
+   text-align: center;
+  padding: 2px 2px; 
+  font-family: sans-serif;
+ }
  
