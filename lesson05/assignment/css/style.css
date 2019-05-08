@@ -3,6 +3,9 @@
 }
 
 header {
+  display: grid;
+  grid-column: 1 / 4;
+  grid-row: 1 / 2;
   background-color: red;
   color: white; 
   padding: 30px;
@@ -10,19 +13,30 @@ header {
   font-size: 25px;
 }
 
-nav {
-  display: flex;
-  background-color: greenyellow;
+
+.container {
+  display: grid;    
+   grid-template-columns: 0.4fr 0.3fr 0.3fr;
+   grid-column-gap: 0;
+   grid-row-gap: 0;
+} 
+
+.nav-wrap {
+  display: grid;
+  background-color: rgb(139, 218, 21);
   color: white;
-  align-items: center;
-  list-style-type: none;
-  justify-content: space-between;
+  grid-column: 1 / 4;
+  grid-row: 2 / 4;
+  padding: 10px;
 }
 
-.nav__item {
+
+.nav__item, .nav__link {
   display:flex;
   color:white;
   align-items:center;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 .nav__list {
@@ -32,23 +46,36 @@ nav {
   width:50%;
   justify-content:space-between;
   color: white;
-}
+} 
+
 
 section {
-  float: right;
+  grid-column: 2 / 6;
+  grid-row-start: 2 / 3;
+  min-height: 400px;
   background-color: orange;
-  color: white; 
 }
+
 aside {
-  float: left;
+  grid-column:  1/ 2;
+  grid-row: 4 / 5;
+  min-height: 500px;
   background-color: purple;
-  color: white;
 }
+
+
+h1, h2, p {
+  color: white; 
+  text-align: center;
+}
+
+
 
 
 footer {
-  clear: both;
-  margin-bottom: 0;
-  color: white;
+  grid-column: 1 / 4;
+  grid-row: 6 / 7;
   background-color: blue;
-}
+  color: white;
+  padding: 10px;
+} 
