@@ -1,0 +1,172 @@
+* {
+  box-sizing: border-box; 
+}
+
+// body 
+
+body {
+  position: absolute;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  padding-top: 80px;
+}
+
+// header tags 
+
+h2 {
+  color: #004466;
+  margin: 0;
+  padding: 10px;
+  font-size: 50px;
+  font-family: Neuton;
+  text-align: center;
+}
+
+
+h5 {
+  color: black;
+  margin: 0;
+  padding: 10px;
+  font-family: Neuton;
+}
+
+// header
+
+header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+// Nav bar 
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgb(37, 37, 37);
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: rgb(58, 136, 172);
+}
+
+//search transition 
+
+input[type=text] {
+  width: 100px;
+  -webkit-transition: width .35s ease-in-out;
+  transition: width .35s ease-in-out;
+}
+input[type=text]:focus {
+  width: 250px;
+}
+
+// section 
+
+section {
+margin: 10px;
+padding: 10px; 
+}
+
+
+// article 
+
+article {
+  padding: 20px;
+  margin: 20px;
+  bottom: 0;
+}
+
+// image transform & translate
+
+//https://www.w3schools.com/howto/howto_css_image_overlay.asp 
+// for the hover over lay effect...im going to mess around with it a little when I have more time
+
+// images used were taken by me 
+
+.container {
+  position: relative;
+  width: 50%;
+  padding: 20px;
+  margin: 20px;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+  padding: 20px;
+  margin: 20px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  width: 100%;
+  opacity: 0;
+  transition: .7s ease;
+  background-color: rgb(26, 28, 29);
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+.text {
+  color: #ffb7c5;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+ transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+// footer 
+
+
+ footer {
+   position: absolute;
+   background-color: rgb(37, 37, 37);
+  padding: 20px;
+   width: 100%;
+   bottom: 0;
+   text-align: center;
+   color: white;
+}
+
+ footer p {
+   font-size: 10px;
+   text-indent: 50px;
+   text-align: center;
+  padding: 2px 2px; 
+  font-family: sans-serif;
+ }
+ 
