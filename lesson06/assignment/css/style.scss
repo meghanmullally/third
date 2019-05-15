@@ -41,6 +41,14 @@ header {
   z-index: 10;
 }
 
+.jumbotron {
+  background: url("image.jpg") no-repeat center;
+}
+.btn-primary {
+  background-color: #c60063;
+  border-color: #c60063;
+}
+
 // Nav bar 
 
 ul {
@@ -147,6 +155,13 @@ article {
  transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   text-align: center;
+}
+
+// section content 
+.btn-secondary {
+  background-color: transparent;
+  border-color: #c60063;
+  color: #c60063;
 }
 
 // footer 
