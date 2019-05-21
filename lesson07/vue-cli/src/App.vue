@@ -38,7 +38,7 @@
     <!---Image Page---->
      <!-- V-For for array of images -->
     <div class="gallery">
-      <img v-for="image in image" {{image.image}}>  
+      <img class="image1" v-for="(image, i) in images" :src="image">  
     </div>
 
   <footer>
@@ -70,7 +70,7 @@
         {image:'img/palace.jpg'},
         {image:'img/london.jpg'}
       ],
-       
+       index: 0
       }
     }
   } //default  
@@ -263,6 +263,20 @@
     text-align: center;
   }
 
+// gallery 
+
+.gallery img {
+  width: 25%;
+}
+
+.image1 {
+  width: 100px;
+  height: 100px;
+  background-size: contain;
+  cursor: pointer;
+  margin: 10px;
+  border-radius: 3px;
+}
 
   // footer 
 
