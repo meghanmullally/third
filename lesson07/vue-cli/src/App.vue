@@ -1,76 +1,115 @@
 <template>
-  <div id="app">
-    <!-- <img src="./assets/logo.png"> -->
-    <!---vue jumbotron-->
-    <div>
-      <b-jumbotron bg-variant="info" text-variant="white" border-variant="dark">
-        <template slot="header">BootstrapVue</template>
 
-        <!-- <template slot="lead"> -->
-        <!--Title and message-->
-        <h1>{{ title }}</h1>
-        <h2>{{msg}}</h2>
-        <!-- </template> -->
+  <body>
+    <div id="app">
+      <!-- <img src="./assets/logo.png"> -->
+      <!---vue jumbotron-->
+      <div>
+        <b-jumbotron bg-variant="info" text-variant="white" border-variant="dark">
+          <template slot="header">BootstrapVue</template>
 
-        <hr class="my-4">
-        <!--nav links--->
-        <ul>
-          <li><a href="index.html" target="_blank">Home</a></li>
-          <li><a href="#" target="_blank">Pictures</a></li>
-          <li><a href="#" target="_blank">Accordian</a></li>
-          <li><a href="#" target="_blank">Grid</a></li>
-        </ul>
-      </b-jumbotron>
+          <!-- <template slot="lead"> -->
+          <!--Title and message-->
+          <h1>{{ title }}</h1>
+          <h2>{{msg}}</h2>
+          <!-- </template> -->
+
+          <hr class="my-4">
+          <!--nav links--->
+          <ul>
+            <li><a href="index.html" target="_blank">Home</a></li>
+            <li><a href="#" target="_blank">Pictures</a></li>
+            <li><a href="#" target="_blank">Accordian</a></li>
+            <li><a href="#" target="_blank">Grid</a></li>
+          </ul>
+        </b-jumbotron>
+      </div>
+      <section>
+        <h3>{{ section }}</h3>
+        <article>
+          <h4>{{main}}</h4>
+          <p>{{msg1}}</p>
+          <hr>
+          <!---vue-if else statement--->
+          <button v-on:click="show = !show">Are you interetsed in traveling??</button>
+          <p v-if="show">Yes!!! :)</p>
+          <p v-else>No traveling sucks</p>
+        </article>
+      </section>
+
+      <hr>
+
+      <!---Image Page---->
+      <!-- V-For for array of images -->
+      <div class="gallery">
+         <img class="image1" v-for="(image, i) in images" :src="image" @click="onClick(i)">
+  <vue-gallery-slideshow :images="images" :index="index" @close="index = null"></vue-gallery-slideshow>
+      </div>
+
+      <hr>
+
+      <!--Third Page -->
+      <!--Object-->
+
+      <h4>{{title2}}</h4>
+      <div class="places">
+<ul id="v-for-object" class="demo">
+  <li v-for="value in object">
+    {{ value }}
+  </li>
+</ul>
+</div>
+
+
+
+
+      <footer>
+        <p> {{ footer }} </p>
+        <p> {{ contact }}</p>
+      </footer>
+
+
+
+
+
     </div>
-    <section>
-      <h3>{{ section }}</h3>
-      <article>
-        <h4>{{main}}</h4>
-        <p>{{msg1}}</p>
-        <hr>
-        <!---vue-if else statement--->
-        <button v-on:click="show = !show">Are you interetsed in traveling??</button>
-        <p v-if="show">Yes!!! :)</p>
-        <p v-else>No traveling sucks</p>
-      </article>
-    </section>
-
-    <!---Image Page---->
-     <!-- V-For for array of images -->
-    <div class="gallery">
-      <img class="image1" v-for="(image, i) in images" :src="image">  
-    </div>
-
-  <footer>
-    <p> {{ footer }} </p>
-    <p> {{ contact }}</p>
-  </footer>
-
-
-
-
-
-  </div>
+  </body>
 </template>
 
 <script>
   export default {
     name: 'app',
+    methods: {
+      onClick(i) {
+        this.index = i;
+      }
+    },
     data() {
       return {
         show: true,
         title: 'Travel',
+        title2: 'Places Ive Been',
         msg: 'Welcome to My Website!',
         section: 'Info about my website',
         msg1: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. morbi cursus vulputate ligu lorem ispumorem ipsum ligu lorem ispumorem ipsum dolor sit amet,consectetur adipiscing elit. morbi cursus vulputate ligu lorem ispum',
         footer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi cursus vulputate ligu Lorem ipsum dolor sit',
         contact: 'Name: Jon Snow Location: Winter is Coming Email: winter@fall.com Telephone Number: 345-634-5633',
-      image: [
-        {image:'img/horse.jpg'},
-        {image:'img/palace.jpg'},
-        {image:'img/london.jpg'}
-      ],
-       index: 0
+        images: [
+          'img/horse.jpg',
+          'img/palace.jpg',
+          'img/london.jpg',
+          'img/cherry-blossoms.jpg',
+          'img/new_orleans.jpg',
+          'img/monet.jpg'
+        ],
+        index: 0,
+        object: {
+      Europe: 'Spain, Italy, France, Switzerland, Netherlands, Belguim',
+      Year: '2014',
+      Asia: 'Thailand, Laos, Japan',
+      Year: '2012, 2019',
+    }
+
       }
     }
   } //default  
@@ -121,7 +160,8 @@
     margin: 0;
     padding: 0;
     width: 100%;
-    // padding-top: 50px;
+    height: auto;
+    //padding-top: 50px;
   }
 
   // header tags 
@@ -263,26 +303,34 @@
     text-align: center;
   }
 
-// gallery 
+  // gallery 
 
-.gallery img {
-  width: 25%;
-}
+  .gallery img {
+    width: 25%;
+  }
 
-.image1 {
-  width: 100px;
-  height: 100px;
-  background-size: contain;
-  cursor: pointer;
-  margin: 10px;
-  border-radius: 3px;
+  .image1 {
+    width: 100%;
+    height: auto;
+    background-size: contain;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 3px;
+  }
+
+// objects - places i've been
+
+.places {
+  list-style-type: circle;
+  margin: 0;
+  padding: 0;
 }
 
   // footer 
 
 
   footer {
-    position: fixed;
+    position: relative;
     background-color: rgb(37, 37, 37);
     padding: 8px;
     width: 100%;
